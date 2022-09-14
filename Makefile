@@ -1,6 +1,6 @@
 # ***********************************************************************************
 #
-#			
+#									Builds Utilities			
 #
 # ***********************************************************************************
 #
@@ -68,8 +68,16 @@ builder:
 		make -C $(KERNALCODE)
 		$(CCOPY) $(KERNALCODE)$(S)bin$(S)C256jr.bin build
 		gcc $(CXXFLAGS) -o makeboot$(APPSTEM) build$(S)makeboot.c
+#
+#		Make shims
+#
+shim2:
+		64tass -c -b -o test$(S)shim2.bin test$(S)shim2.asm
 		.$(S)makeboot$(APPSTEM) test$(S)shim2.bin test$(S)shim2.load
-
+shim3:
+		64tass -c -b -o test$(S)shim3.bin test$(S)shim3.asm
+		.$(S)makeboot$(APPSTEM) test$(S)shim3.bin test$(S)shim3.load
+#
 #
 #		So can now upload with these sort of things after makeboot(.exe) <binary> <result> 
 #	
@@ -78,8 +86,10 @@ builder:
 #		Try 
 #			poke 1,0:poke 53248,1
 #
-goshim:	
+goshim2:	shim2
 	python fnxmgr.zip --port $(PORT) --binary test/shim2.load --address 8000
+goshim3:	shim3
+	python fnxmgr.zip --port $(PORT) --binary test/shim3.load --address 8000
 gobas:	
 	python fnxmgr.zip --port $(PORT) --binary test/basic02.bin --address 8000
 
