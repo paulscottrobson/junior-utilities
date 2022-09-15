@@ -92,4 +92,7 @@ goshim3:	shim3
 	python fnxmgr.zip --port $(PORT) --binary test/shim3.load --address 8000
 gobas:	
 	python fnxmgr.zip --port $(PORT) --binary test/basic02.bin --address 8000
-
+goms:	
+	python fnxmgr.zip --port $(PORT) --binary test/msbasic.bin --address A000
+gostef:
+	python fnxmgr.zip --port $(PORT) --binary test/stef.bin --address 8000

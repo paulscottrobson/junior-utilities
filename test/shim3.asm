@@ -18,25 +18,12 @@ zTemp0 = $20
 
 		stz 	$D101
 		stz 	$D102
-		stz 	$D103
+		lda 	#0
+		sta 	$D103
 
 		stz 	$D00D
 		stz 	$D00E
 		stz 	$D00F
-
-
-			lda 	$00 						; Read MMU Control
-			pha 								; save original value
-			and 	#$0F 						
-			ora 	#$80 						; set edit bit and MMU0
-			sta 	$00
-
-			lda 	#1  						; set $4000-$5FFF and $6000-$7FFF to use page 1 e.g. $2000-$3FFF					
-			sta 	$0A
-			sta 	$0B
-
-			pla 								; restore MMU
-			sta 	0
 
 		jsr 	InitialiseGraphicsLUT
 
@@ -68,8 +55,15 @@ _Fill3:	txa
 		lda 	zTemp0+1
 		cmp 	#$40
 		bcc 	_Fill1
-		inx 	
-		bra 	_Fill0
+
+		lda 	#$80
+		sta 	0
+		lda 	#2
+		sta 	$0A
+		lda 	#2
+		sta 	$0B
+		lda 	#2
+		sta 	$0C
 
 halt:	bra 	halt
 
