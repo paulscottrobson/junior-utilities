@@ -98,5 +98,5 @@ gostef:
 	python fnxmgr.zip --port $(PORT) --binary test/stef.bin --address 8000
 
 gomonitor:
-	make -C ..$(S)junior-emulator$(S)newmon
-	python fnxmgr.zip --port $(PORT) --binary ..$(S)junior-emulator$(S)newmon$(S)monitor.rom --address F000
+	make -B -C ..$(S)junior-tinykernel
+	python fnxmgr.zip --port $(PORT) --binary ..$(S)junior-tinykernel$(S)monitor.rom --address F000
