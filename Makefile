@@ -100,3 +100,6 @@ gostef:
 gomonitor:
 	make -B -C ..$(S)junior-tinykernel
 	python fnxmgr.zip --port $(PORT) --binary ..$(S)junior-tinykernel$(S)monitor.rom --address F000
+
+gobasic:	
+	python fnxmgr.zip --port $(PORT) --binary ..$(S)basic02$(S)source$(S)basic.rom --address 8000
