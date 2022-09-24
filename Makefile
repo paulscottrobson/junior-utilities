@@ -96,3 +96,7 @@ goms:
 	python fnxmgr.zip --port $(PORT) --binary test/msbasic.bin --address A000
 gostef:
 	python fnxmgr.zip --port $(PORT) --binary test/stef.bin --address 8000
+
+gomonitor:
+	make -C ..$(S)junior-emulator$(S)newmon
+	python fnxmgr.zip --port $(PORT) --binary ..$(S)junior-emulator$(S)newmon$(S)monitor.rom --address F000

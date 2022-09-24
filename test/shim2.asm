@@ -3,6 +3,13 @@ zTemp0 = $80
 		* = $8010
 		ldx 	#$FF
 		txs
+
+		lda 	$00
+		jsr 	OutHex
+		lda 	$01
+		jsr 	OutHex
+		jsr 	CRLF
+		
         lda #$80
         sta $00
         jsr 	ShowTable
@@ -84,6 +91,7 @@ _OutTable:
 		inx
 		cpx	 	#16
 		bne 	_outTable
+CRLF:		
 		lda 	#13
 		jsr 	$FFD2	
 		rts
