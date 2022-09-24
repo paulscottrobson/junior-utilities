@@ -87,9 +87,9 @@ shim3:
 #			poke 1,0:poke 53248,1
 #
 goshim2:	shim2
-	python fnxmgr.zip --port $(PORT) --binary test/shim2.load --address 8000
+	python fnxmgr.zip --port $(PORT) --binary test/shim2.bin --address 8000
 goshim3:	shim3
-	python fnxmgr.zip --port $(PORT) --binary test/shim3.load --address 8000
+	python fnxmgr.zip --port $(PORT) --binary test/shim3.bin --address 8000
 gobas:	
 	python fnxmgr.zip --port $(PORT) --binary test/basic02.bin --address 8000
 goms:	

@@ -1,6 +1,6 @@
 zTemp0 = $80
 
-		* = $8010
+		* = $8000
 		ldx 	#$FF
 		txs
 
@@ -62,7 +62,7 @@ zTemp0 = $80
 
 halt:	bra 	halt
 
-		xrts
+		rts
 
 OutHex:	pha
 		lda 	#32

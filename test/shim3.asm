@@ -1,11 +1,13 @@
 zTemp0 = $20
 
-		* = $8010
+		* = $8000
+
 		ldx 	#$FF
 		txs
 		lda 	#42
 		jsr 	$FFD2
 		jsr 	$FFD2
+
 
 		lda 	1
 		and 	#$F8
