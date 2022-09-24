@@ -20,7 +20,7 @@ zTemp0 = $20
 
 		stz 	$D101
 		stz 	$D102
-		lda 	#0
+		lda 	#1
 		sta 	$D103
 
 		stz 	$D00D
@@ -28,6 +28,14 @@ zTemp0 = $20
 		stz 	$D00F
 
 		jsr 	InitialiseGraphicsLUT
+
+		sei
+		lda 	#$80
+		sta 	0
+		lda 	#9
+		sta 	9
+		stz 	0
+		cli
 
 _Fill0:
 		lda 	#$20
