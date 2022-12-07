@@ -1,0 +1,1 @@
+Turn on DIP2 to force i8042 mod
